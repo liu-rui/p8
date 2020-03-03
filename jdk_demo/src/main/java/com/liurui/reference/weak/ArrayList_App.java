@@ -10,7 +10,7 @@ import java.util.HashMap;
  * @description -Xmx16m  -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:NewSize=2m -XX:MaxNewSize=2m
  * @since
  */
-public class app1 {
+public class ArrayList_App {
     public static class Car {
         private String code;
 
