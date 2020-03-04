@@ -8,6 +8,5 @@ package com.liurui.class_loader_demo;
  */
 public class app {
     public static void main(String[] args) {
-        Thread.currentThread().getContextClassLoader()
     }
 }
