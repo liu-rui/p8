@@ -11,6 +11,8 @@
     <modules>
         <module>jdk_demo</module>
       <module>concurrent_demo</module>
+        <module>slf4j_demo</module>
+        <module>spi_demo</module>
     </modules>
     <name>p8</name>
 
