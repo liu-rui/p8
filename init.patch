@@ -1,0 +1,49 @@
+Index: concurrent_demo/src/test/java/com/liurui/AppTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- concurrent_demo/src/test/java/com/liurui/AppTest.java	(date 1583202179199)
++++ concurrent_demo/src/test/java/com/liurui/AppTest.java	(date 1583202179199)
+@@ -0,0 +1,20 @@
++package com.liurui;
++
++import static org.junit.Assert.assertTrue;
++
++import org.junit.Test;
++
++/**
++ * Unit test for simple App.
++ */
++public class AppTest 
++{
++    /**
++     * Rigorous Test :-)
++     */
++    @Test
++    public void shouldAnswerWithTrue()
++    {
++        assertTrue( true );
++    }
++}
+Index: jdk_demo/src/main/java/com/liurui/App.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- jdk_demo/src/main/java/com/liurui/App.java	(date 1583201829063)
++++ jdk_demo/src/main/java/com/liurui/App.java	(date 1583201829063)
+@@ -0,0 +1,13 @@
++package com.liurui;
++
++/**
++ * Hello world!
++ *
++ */
++public class App 
++{
++    public static void main( String[] args )
++    {
++        System.out.println( "Hello World!" );
++    }
++}

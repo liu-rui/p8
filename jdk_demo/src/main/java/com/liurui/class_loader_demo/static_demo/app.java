@@ -6,7 +6,7 @@ public class app {
     public static void main(String[] args) {
         //只会初始化静态变量所在的类
         //参加视频：https://www.bilibili.com/video/av75247289?p=6
-        System.out.println(Child.childStr);
+        System.out.println(Child.parentStr);
 
     }
 
