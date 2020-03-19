@@ -10,10 +10,16 @@ public class App {
     public static void main(String[] args) {
         final ServiceLoader<Sendable> load = ServiceLoader.load(Sendable.class);
 
-        final Iterator<Sendable> iterator = load.iterator();
+          Iterator<Sendable> iterator = load.iterator();
 
-        while (iterator.hasNext()) {
-            iterator.next().send();
+        if(iterator.hasNext()){
+            System.out.println( iterator.next().getClass());
+        }
+
+        iterator = load.iterator();
+
+        if(iterator.hasNext()){
+            System.out.println( iterator.next().getClass());
         }
     }
 }
