@@ -43,5 +43,7 @@ public class ArrayList_App {
                 System.out.println(list.get(0).get().toString());
             }
         }
+
+        System.out.println(list.size());
     }
 }

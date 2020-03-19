@@ -14,33 +14,27 @@ public class A {
         SynchronousQueue<Integer> queue = new SynchronousQueue<>();
 
 
-        Thread a = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                int i = 0;
-                while (!Thread.currentThread().isInterrupted()) {
-                    try {
-                        queue.put(i++);
-                    } catch (InterruptedException e) {
-                        System.out.println("error a return");
-                        return;
-                    }
+        Thread a = new Thread(() -> {
+            int i = 0;
+            while (!Thread.currentThread().isInterrupted()) {
+                try {
+                    queue.put(i++);
+                } catch (InterruptedException e) {
+                    System.out.println("error a return");
+                    return;
                 }
             }
         });
 
         a.start();
 
-        Thread b = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                while (!Thread.currentThread().isInterrupted()) {
-                    try {
-                        System.out.println(queue.take());
-                    } catch (InterruptedException e) {
-                        System.out.println("error b return");
-                        return;
-                    }
+        Thread b = new Thread(() -> {
+            while (!Thread.currentThread().isInterrupted()) {
+                try {
+                    System.out.println(queue.take());
+                } catch (InterruptedException e) {
+                    System.out.println("error b return");
+                    return;
                 }
             }
         });
