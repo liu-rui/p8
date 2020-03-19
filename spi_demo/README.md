@@ -29,7 +29,7 @@ Thread.currentThread().getContextClassLoader()获取ClassLoader,来打破类加�
 - LazyIterator定义为内部类(非static) ,可以访问到当前的ServiceLoader对象的属性；如缓存属性（providers）
 - 迭代器接口定义的方法hasNext调用了hasNextService，查看是否有元素，我们看看hasNextService的代码
 configs：指向多个资源文件的迭代器；
-由于一个资源文件中可以定义多个实现类，所以也对应这一个迭代器pending
+由于一个资源文件中可以定义多个实现类，所以也需要对应这一个迭代器pending
 hasNextService的逻辑是：遍历2层迭代器，获取到业务实现类名；第一层是资源文件集合，使用字段configs。第二层是资源文件中定义的实现类名结合，使用字段pending.
 - 迭代器接口定义的方法next调用了nextService，返回业务对象，一起看看nextService的代码
 通过 Class.forName获取class对象，注意传递false,不初始化;因为资源文件里面配置的可能不是接口的实现类，如果不是的话，直接抛异常.如果之前初始化了，降低了性能。
