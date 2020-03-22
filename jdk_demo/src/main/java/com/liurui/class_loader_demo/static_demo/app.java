@@ -16,7 +16,7 @@ public class app {
 
 
     public  static  class  Parent{
-        public static  String parentStr = "this is parent string";
+        public static  final  String parentStr = UUID.randomUUID().toString();
 
         static {
             System.out.println("this is parent static code block");

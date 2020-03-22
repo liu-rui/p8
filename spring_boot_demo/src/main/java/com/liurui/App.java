@@ -20,6 +20,7 @@ public class App {
         SpringApplication.run(App.class, args);
         //打印代码路径
         System.out.println( App.class.getProtectionDomain().getCodeSource().getLocation());
-        System.out.println( String.class.getProtectionDomain().getCodeSource().getLocation());
+
+        System.out.println(ClassLoader.getSystemClassLoader());
     }
 }

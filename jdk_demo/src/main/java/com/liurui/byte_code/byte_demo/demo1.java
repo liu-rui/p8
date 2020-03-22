@@ -6,7 +6,7 @@ package com.liurui.byte_code.byte_demo;
  * @description
  * @since
  */
-public class app {
+public class demo1 {
     private  int a = 10;
 
     public int getA() {
