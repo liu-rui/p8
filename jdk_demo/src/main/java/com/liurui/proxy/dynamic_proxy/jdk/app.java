@@ -18,6 +18,8 @@ import java.nio.file.Paths;
  */
 public class app {
     public static void main(String[] args) throws IOException {
+        System.setProperty("sun.misc.ProxyGenerator.saveGeneratedFiles" , "true");
+
         UserService target = new UserServiceImpl();
         MyInvocationHandler  handler = new MyInvocationHandler(target);
         final UserService proxy = (UserService) Proxy.newProxyInstance(app.class.getClassLoader(),
@@ -28,8 +30,5 @@ public class app {
 
         System.out.println(proxy.hashCode());
 
-        final byte[] bytes = ProxyGenerator.generateProxyClass("$Proxy0", target.getClass().getInterfaces());
-
-        Files.write(Paths.get( "proxy_source.class" ), bytes);
     }
 }
