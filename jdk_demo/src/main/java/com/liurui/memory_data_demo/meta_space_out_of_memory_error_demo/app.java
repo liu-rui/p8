@@ -7,7 +7,7 @@ import net.sf.cglib.proxy.MethodProxy;
 import java.lang.reflect.Method;
 
 /**
- * -XX:MaxMetaspaceSize=20m
+ * -XX:MaxMetaspaceSize=200m
  */
 public class app {
 

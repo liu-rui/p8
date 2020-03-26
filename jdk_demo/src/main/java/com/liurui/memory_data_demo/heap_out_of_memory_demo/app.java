@@ -2,6 +2,8 @@ package com.liurui.memory_data_demo.heap_out_of_memory_demo;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
+import java.util.concurrent.TimeUnit;
 
 /**
  * 通过jvisualvm分析堆溢出
@@ -13,13 +15,11 @@ public class app {
 
         while (true){
             list.add(new app());
-            System.gc();
-
-            if(list  == null){
-                break;
+            try {
+                TimeUnit.SECONDS.sleep(2);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
         }
-
-        System.out.println(list.size());
     }
 }
