@@ -1,7 +1,5 @@
 package com.liurui.class_loader_demo;
 
-import sun.reflect.Reflection;
-import sun.reflect.misc.ReflectUtil;
 
 import java.net.MalformedURLException;
 import java.net.URL;

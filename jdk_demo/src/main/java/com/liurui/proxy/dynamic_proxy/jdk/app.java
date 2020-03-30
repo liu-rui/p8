@@ -25,10 +25,8 @@ public class app {
         final UserService proxy = (UserService) Proxy.newProxyInstance(app.class.getClassLoader(),
                 target.getClass().getInterfaces(),
                 handler);
-
         proxy.add("李四");
 
-        System.out.println(proxy.hashCode());
-
+        System.out.printf("调用hashcode 目标对象：%s  代理对象：%s\n" , target.hashCode() ,   proxy.hashCode());
     }
 }

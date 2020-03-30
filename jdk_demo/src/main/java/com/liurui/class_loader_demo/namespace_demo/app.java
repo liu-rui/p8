@@ -1,7 +1,6 @@
 package com.liurui.class_loader_demo.namespace_demo;
 
 import com.liurui.class_loader_demo.MyClassLoader;
-import com.sun.xml.internal.bind.v2.runtime.output.StAXExStreamWriterOutput;
 
 /**
  * @author liu-rui
