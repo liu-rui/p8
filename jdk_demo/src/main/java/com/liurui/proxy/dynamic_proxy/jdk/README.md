@@ -79,7 +79,7 @@ generateProxyClass方法执行过程如下：
 2. 调用gen.generateClassFile()生成字节码
 3. 如果开关saveGeneratedFiles为true,将字节码文件持久化
  1. saveGeneratedFiles有系统属性sun.misc.ProxyGenerator.saveGeneratedFiles决定，设置true开启
- 2. 如果代理类的名称为a.b.c.d,则文件文件为./a/b/c/d.class,卸载了当前的工作目录下，即系统属性user.dir下。
+ 2. 如果代理类的名称为a.b.c.d,则文件文件为./a/b/c/d.class,写在了当前的工作目录下，即系统属性user.dir下。
 generateClassFile方法执行过程如下：
 1. 
 
