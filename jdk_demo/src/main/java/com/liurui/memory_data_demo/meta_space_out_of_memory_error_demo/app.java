@@ -5,10 +5,18 @@ import net.sf.cglib.proxy.MethodInterceptor;
 import net.sf.cglib.proxy.MethodProxy;
 
 import java.lang.reflect.Method;
+import java.util.concurrent.TimeUnit;
 
 /**
  * 目标：元空间溢出
  * -XX:MaxMetaspaceSize=20m
+ * -XX:+PrintGCDetails
+ * -XX:+PrintGCDateStamps
+ * -XX:+PrintFlagsInitial
+ *
+ * 将元空间调大是为了使用jstat看效果
+ * 通过jstat -gcutil pid 观察
+ *
  */
 public class app {
 
