@@ -13,8 +13,8 @@ private static final WeakCache<ClassLoader, Class<?>[], Class<?>>
 ，重点研究下WeakCache类。
 #### KeyFactory
 用于生产key的工厂，根据ClassLoader和interfaces数组。
-根据接口长度返回不同类型的对象,
-长度为0: 使用object类型的常量key0（创建代理类可以不适用接口？）
+根据接口长度返回不同类型的对象：
+长度为0: 使用object类型的常量key0（创建代理类可以不实用接口）
 长度为1: 使用Key1类型的对象(一般代理类也就1个接口，最频繁的)
 长度为2: 使用Key2类型的对象
 长度更多的: 使用KeyX类型的对象
@@ -42,7 +42,7 @@ ConcurrentMap<Object, ConcurrentMap<Object, Supplier<V>>> map,元素结构是（
 map的key的类型是CacheKey<K>，弱引用类型；对应Proxy传递过来的参数对应到的类型是ClassLoader,则key的类型为CacheKey<ClassLoader>
 sub-key的类型是object,强引用类型，sub-key通过subKeyFactory.apply(K, P)得到；对应proxy传递过来对应的类型是个弱引用类型（Proxy$Key1、Proxy$Key2、Proxy$KeyX）
 value的类型是Supplier<V>,V的值valueFactory.apply(K, P)得到；对应proxy传递过来的对应的类型是Supplier<Class<?>>。Supplier具体对应2个实现类：Factory和CacheValue;
-Factory只有在get过程中使用，通过调用valueFactory来创建CacheValue。CacheValue是最终的执行结果，随意通常说的value对应的类型就是CacheValue<V>,是个弱引用类型。
+Factory只有在get过程中使用，通过调用valueFactory来创建CacheValue。CacheValue是最终的执行结果，所以通常说的value对应的类型就是CacheValue<V>,是个弱引用类型。
 方法：
 1. V get(K,P)： 根据K,P获取V
 2. int Size(): 获取存储的V的个数
@@ -51,10 +51,10 @@ Factory只有在get过程中使用，通过调用valueFactory来创建CacheValue
 1. expungeStaleEntries(),删除失效的元素
     1.循环refQueue,从map中移除掉K,同时把K对应的V也删除掉
 2. 根据K,得到cacheKey
-3. 根据CacheKey从map中得到valuesMap,不存在的话初始化一个。valuesMap对应着(subKey,Value),
+3. 根据CacheKey从map中得到valuesMap,不存在的话初始化一个。valuesMap存储结构是(subKey,Value)
 4. 调用subKeyFactory.apply(key, parameter),获取subKey
 5. 根据subKey从valuesMap获取到cacheValue,变量名为supplier
-6. 通过while循环解决多线程问题
+6. 通过while循环解决多线程问题和弱引用自动回收造成null问题
     1. 如果supplier不为null时调用supplier.get，如果不为null,直接返回。为null是因为CacheValue是个弱引用，可能被回收。
     2. 创建Factory对象
     3. 如果supplier为null,尝试着将subKey作为key,factory作为value插入到valuesMap;可能由于多线程操作，已经有值了，那么supplier使用已有的。
@@ -64,7 +64,7 @@ Factory是个内部类，可以访问WeakCache的变量
 Factory实现了Supplier接口，通过get方法来获取CacheValue。
 分析下get方法：
 1. 此方法签名有synchronized，确保线程安全
-2. 从valuesMap和当前的subKey获取value,如果不相等的话，直接返回null,好由WeakCache.get中的while再次尝试
+2. 从valuesMap和当前的subKey获取value,如果不相等的话，直接返回null,将由WeakCache.get中的while再次尝试
 3. 调用valueFactory.apply(key, parameter)创建value
 4. 如果value为null,valuesMap移除subkey和当前的Factory
 5. 将value包装成CacheValue类型的
@@ -78,10 +78,16 @@ generateProxyClass方法执行过程如下：
 1. 新建一个ProxyGenerator对象gen
 2. 调用gen.generateClassFile()生成字节码
 3. 如果开关saveGeneratedFiles为true,将字节码文件持久化
- 1. saveGeneratedFiles有系统属性sun.misc.ProxyGenerator.saveGeneratedFiles决定，设置true开启
+ 1. saveGeneratedFiles由系统属性sun.misc.ProxyGenerator.saveGeneratedFiles决定，设置true开启
  2. 如果代理类的名称为a.b.c.d,则文件文件为./a/b/c/d.class,写在了当前的工作目录下，即系统属性user.dir下。
 generateClassFile方法执行过程如下：
-1. 
+1. 注册通用的三个方法：hashcode,equals,tostring
+2. 注册接口数组中每个接口的所有的方法
+3. 注册特定的构造函数（传递一个InvocationHandler变量作为参数），字段和静态代码块（<clinit>）
+4. 写.class文件，使用DataOutputStream流
+
+
+
 
 
 
