@@ -18,6 +18,7 @@
         <module>java_agent</module>
       <module>java_agent/java_agent_client_demo1</module>
       <module>java_agent/java_agent_server_demo1</module>
+        <module>ASM_Demo</module>
     </modules>
     <name>p8</name>
 

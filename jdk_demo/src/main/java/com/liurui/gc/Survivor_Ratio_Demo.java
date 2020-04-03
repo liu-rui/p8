@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
  * @description
  * 验证默认VM参数
  * 当前服务器物理内存为16G
- * 使用 jcmd 19917 VM.flags
+ * 使用 jcmd 19917 VM.flags命令后JVM flags 值为：
  *-XX:CICompilerCount=4 -XX:InitialHeapSize=262144000 -XX:MaxHeapSize=4175429632 -XX:MaxNewSize=1391460352
  * -XX:MinHeapDeltaBytes=524288 -XX:NewSize=87031808 -XX:OldSize=175112192
  * -XX:+PrintCommandLineFlags -XX:+UseCompressedClassPointers -XX:+UseCompressedOops -XX:+UseParallelGC

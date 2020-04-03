@@ -36,7 +36,7 @@ public class demo1 {
      * 8m,eden一共才8m,系统会占用3m,这样才剩下5m,放不下8m,直接放入了年老代
      */
     private static void bigData() {
-        byte[] a = new byte[5 * len];
+        byte[] a = new byte[8 * len];
 
         return;
     }
