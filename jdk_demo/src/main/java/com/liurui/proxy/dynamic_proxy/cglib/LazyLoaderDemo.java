@@ -14,6 +14,7 @@ public class LazyLoaderDemo {
         private String name;
 
         public String getName() {
+            System.out.println("customer getname");
             return name;
         }
 
@@ -37,6 +38,7 @@ public class LazyLoaderDemo {
                 });
 
         System.out.println(proxy.getClass());
+        System.out.println(proxy.getName());
         System.out.println(proxy.getName());
     }
 }
