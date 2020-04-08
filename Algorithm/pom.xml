@@ -5,24 +5,9 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.liurui</groupId>
-  <artifactId>p8</artifactId>
-    <packaging>pom</packaging>
-    <version>1.0-SNAPSHOT</version>
-    <modules>
-        <module>jdk_demo</module>
-      <module>concurrent_demo</module>
-        <module>slf4j_demo</module>
-        <module>spi_demo</module>
-        <module>spring_boot_demo</module>
-        <module>netty_demo</module>
-        <module>java_agent</module>
-      <module>java_agent/java_agent_client_demo1</module>
-      <module>java_agent/java_agent_server_demo1</module>
-        <module>ASM_Demo</module>
-        <module>Algorithm</module>
-    </modules>
-    <name>p8</name>
-
+  <artifactId>Algorithm</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <name>Algorithm</name>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
@@ -30,7 +15,6 @@
   </properties>
 
   <dependencies>
-
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -76,6 +60,10 @@
         <plugin>
           <artifactId>maven-site-plugin</artifactId>
           <version>3.7.1</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-project-info-reports-plugin</artifactId>
+          <version>3.0.0</version>
         </plugin>
       </plugins>
     </pluginManagement>

@@ -13,7 +13,7 @@ public class app {
         final Child child = new Child();
         Parent parent = (Parent) child;
         child.get();
-        System.out.println(Parent.a);
+//        System.out.println(Parent.a);
     }
 
     public interface Parent {
