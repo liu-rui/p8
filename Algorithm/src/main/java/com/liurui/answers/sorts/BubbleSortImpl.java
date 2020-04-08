@@ -1,6 +1,5 @@
 package com.liurui.answers.sorts;
 
-
 import com.liurui.defines.sorts.BubbleSort;
 
 public class BubbleSortImpl implements BubbleSort {
