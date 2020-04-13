@@ -6,6 +6,7 @@ import java.util.concurrent.TimeUnit;
  * @author liu-rui
  * @date 2020/2/27 下午2:10
  * @description
+ * 通过-XX:+UnlockDiagnosticVMOptions -XX:+PrintAssembly 能看出volatile对应的汇编
  * @since
  */
 public class App {
