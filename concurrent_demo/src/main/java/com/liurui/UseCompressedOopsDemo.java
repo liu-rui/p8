@@ -35,12 +35,27 @@ import org.openjdk.jol.info.ClassLayout;
  * 16
  * 16
  *
+ * 设置最大堆大小为40g,显示开启压缩标记：-Xmx40g -XX:+UseCompressedOops
+ * OpenJDK 64-Bit Server VM warning: Max heap size too large for Compressed Oops
+ * java.lang.Object object internals:
+ *  OFFSET  SIZE   TYPE DESCRIPTION                               VALUE
+ *       0     4        (object header)                           01 00 00 00 (00000001 00000000 00000000 00000000) (1)
+ *       4     4        (object header)                           00 00 00 00 (00000000 00000000 00000000 00000000) (0)
+ *       8     4        (object header)                           80 db 9a 44 (10000000 11011011 10011010 01000100) (1150999424)
+ *      12     4        (object header)                           26 7f 00 00 (00100110 01111111 00000000 00000000) (32550)
+ * Instance size: 16 bytes
+ * Space losses: 0 bytes internal + 0 bytes external = 0 bytes total
+ *
+ * 16
+ * 16
+ *
+ *
  * 结论：
  * 1. 64位下是默认开启的，通过参数-XX:+PrintFlagsFinal确认结论
  * 2. mark word占用8个字节，参数是否开启都是相同的
  * 3. klass word,参数开启时（默认）占用了4位，参数关闭后是8字节
  * 4. 启动后，header长度是12字节，非8整数倍，通过对齐方式（4个字节）达到8的整数倍。
- *
+ * 4. 当堆大小超过32G时，压缩标记失效，采用8字节。
  * @since
  */
 public class UseCompressedOopsDemo {
