@@ -59,7 +59,8 @@ import org.openjdk.jol.info.ClassLayout;
  *
  *
  * 结论：
- *
+ *1. 为了便于测试轻量级锁，关闭了偏向锁功能，故对象创建后头部state标记为未使用(01)
+ *2. 当在同步块中时，使用了轻量级锁（01），并记录了lock record
  *
  * @since
  */
