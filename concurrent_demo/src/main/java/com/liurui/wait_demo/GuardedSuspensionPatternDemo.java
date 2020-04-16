@@ -61,14 +61,14 @@ public class GuardedSuspensionPatternDemo {
                 e.printStackTrace();
             }
 
-            guardedSuspension.setFood(null);
+            guardedSuspension.setFood("宫保鸡丁"); // 分析下值为null和宫保鸡丁的运行结果
         }, "妈妈");
 
         monther.start();
 
         Thread child = new Thread(() -> {
             log.info("获取食物");
-            final String food = guardedSuspension.getFood(7000); //分析下时间为2000和7000的结果
+            final String food = guardedSuspension.getFood(7000); //分析下时间为2000和7000的运行结果
 
             if (food == null) {
                 log.info("饭还没有做好，哇哇哭！");
