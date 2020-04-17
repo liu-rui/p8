@@ -13,7 +13,7 @@ import java.util.concurrent.locks.LockSupport;
  * <p>
  * <p>
  * 结论：
- * 1. unpark可以对下一次park生效，但只要一次。即无论执行多少次unpark，只对一次park生效。
+ * 1. unpark可以对下一次park生效，但只有一次。即无论执行多少次unpark，只对一次park生效。
  */
 @Slf4j(topic = "Demo2")
 public class Demo2 {
