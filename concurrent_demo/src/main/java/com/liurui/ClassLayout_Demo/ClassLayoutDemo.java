@@ -1,4 +1,4 @@
-package com.liurui;
+package com.liurui.ClassLayout_Demo;
 
 import org.openjdk.jol.info.ClassLayout;
 

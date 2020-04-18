@@ -1,4 +1,4 @@
-package com.liurui;
+package com.liurui.ClassLayout_Demo;
 
 import org.openjdk.jol.info.ClassLayout;
 
@@ -58,7 +58,7 @@ import org.openjdk.jol.info.ClassLayout;
  * 4. 当堆大小超过32G时，压缩标记失效，采用8字节。
  * @since
  */
-public class UseCompressedOopsDemo {
+public class UseCompressedOopsDemo1 {
     public static void main(String[] args) {
         final ClassLayout classLayout = ClassLayout.parseInstance(new Object());
         System.out.println(classLayout.toPrintable());
