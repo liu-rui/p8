@@ -2,15 +2,21 @@ package com.liurui.Alternate_Print_Demo;
 
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * 通过wait & notifyAll
+ * @author liu-rui
+ * @date 2020/4/21 下午2:27
+ * @description
+ * @since
  */
-public class Demo1 {
-
+public class Demo2 {
     @Slf4j(topic = "Printer")
     static class Printer {
         static int num = 0;
+        static ReentrantLock lock = new ReentrantLock();
+        static Condition condition = lock.newCondition();
         int index;
         int maxCount;
         int count = 0;
@@ -22,12 +28,13 @@ public class Demo1 {
 
         public void start() {
             Thread t = new Thread(() -> {
-                synchronized (Printer.class) {
+                lock.lock();
+                try {
                     while (true) {
                         if (num % 3 == index) {
                             System.out.print((char) (65 + index));
                             num++;
-                            Printer.class.notifyAll();
+                            condition.signalAll();
                             count++;
 
                             if (count == maxCount) {
@@ -35,12 +42,15 @@ public class Demo1 {
                             }
                         } else {
                             try {
-                                Printer.class.wait();
+                                condition.await();
                             } catch (InterruptedException e) {
                             }
                         }
                     }
+                } finally {
+                    lock.unlock();
                 }
+
             }, "工作线程" + index);
 
             t.start();
@@ -49,8 +59,8 @@ public class Demo1 {
 
 
     public static void main(String[] args) {
-        new Printer(1, 3).start();
-        new Printer(2, 3).start();
-        new Printer(0, 3).start();
+        new Demo1.Printer(0, 3).start();
+        new Demo1.Printer(1, 3).start();
+        new Demo1.Printer(2, 3).start();
     }
 }
