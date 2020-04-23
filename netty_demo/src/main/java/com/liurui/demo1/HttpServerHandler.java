@@ -4,6 +4,7 @@ import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.handler.codec.http.*;
+import io.netty.util.CharsetUtil;
 
 public class HttpServerHandler  extends SimpleChannelInboundHandler<HttpObject> {
     @Override
@@ -11,7 +12,7 @@ public class HttpServerHandler  extends SimpleChannelInboundHandler<HttpObject> 
         if(msg instanceof HttpRequest){
             DefaultFullHttpResponse response = new DefaultFullHttpResponse(HttpVersion.HTTP_1_1,
                     HttpResponseStatus.OK,
-                    Unpooled.wrappedBuffer("hello world".getBytes()));
+                    Unpooled.copiedBuffer("hello world", CharsetUtil.UTF_8));
 
             response.headers().add(HttpHeaderNames.CONTENT_TYPE , HttpHeaderValues.TEXT_PLAIN);
             response.headers().add(HttpHeaderNames.CONTENT_LENGTH , response.content().readableBytes());
