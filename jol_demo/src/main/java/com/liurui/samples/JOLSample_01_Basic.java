@@ -51,6 +51,53 @@ public class JOLSample_01_Basic {
     public static void main(String[] args) throws Exception {
         out.println(VM.current().details());
         out.println(ClassLayout.parseClass(A.class).toPrintable());
+
+        //# Running 64-bit HotSpot VM.
+        //# Using compressed oop with 3-bit shift.
+        //# Using compressed klass with 3-bit shift.
+        //# WARNING | Compressed references base/shifts are guessed by the experiment!
+        //# WARNING | Therefore, computed addresses are just guesses, and ARE NOT RELIABLE.
+        //# WARNING | Make sure to attach Serviceability Agent to get the reliable addresses.
+        //# Objects are 8 bytes aligned.
+        //# Field sizes by type: 4, 1, 1, 2, 2, 4, 4, 8, 8 [bytes]
+        //# Array element sizes: 4, 1, 1, 2, 2, 4, 4, 8, 8 [bytes]
+        //
+        //com.liurui.samples.JOLSample_01_Basic$A object internals:
+        // OFFSET  SIZE      TYPE DESCRIPTION                               VALUE
+        //      0    12           (object header)                           N/A
+        //     12     1   boolean A.f                                       N/A
+        //     13     3           (loss due to the next object alignment)
+        //Instance size: 16 bytes
+        //Space losses: 0 bytes internal + 3 bytes external = 3 bytes total
+        //
+        //
+        //Process finished with exit code 0
+
+        //Field sizes by type
+        //                size:oopSize,
+        //                sizes.booleanSize,
+        //                sizes.byteSize,
+        //                sizes.charSize,
+        //                sizes.shortSize,
+        //                sizes.intSize,
+        //                sizes.floatSize,
+        //                sizes.longSize,
+        //                sizes.doubleSize
+        //Array element sizes
+        //                U.arrayIndexScale(Object[].class),
+        //                U.arrayIndexScale(boolean[].class),
+        //                U.arrayIndexScale(byte[].class),
+        //                U.arrayIndexScale(char[].class),
+        //                U.arrayIndexScale(short[].class),
+        //                U.arrayIndexScale(int[].class),
+        //                U.arrayIndexScale(float[].class),
+        //                U.arrayIndexScale(long[].class),
+        //                U.arrayIndexScale(double[].class)
+
+        //分析：
+        //1. 引用类型启动了-XX:+UseCompressedOops时为4byte,关闭后为8byte
+        //2. 对齐在数据的后面
+
     }
 
     public static class A {

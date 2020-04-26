@@ -40,7 +40,7 @@ import static java.lang.System.out;
  */
 public class JOLSample_08_Class {
 
-    /*
+    /**
      * Another example of special treatment for some fields.
      *
      * If you run this example, you can see the large gap in instance field block.

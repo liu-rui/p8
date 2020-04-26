@@ -40,7 +40,7 @@ import static java.lang.System.out;
  */
 public class JOLSample_03_Packing {
 
-    /*
+    /**
      * This is the example how VM packs the fields.
      *
      * JVMs pack the fields to minimize the memory footprint. Run
@@ -52,11 +52,41 @@ public class JOLSample_03_Packing {
      *
      * Note that the actual field order is very different from the
      * declared order. Nothing in the JVM spec requires otherwise.
-     */
+     **/
 
     public static void main(String[] args) throws Exception {
         out.println(VM.current().details());
         out.println(ClassLayout.parseClass(A.class).toPrintable());
+
+        //# WARNING | Make sure to attach Serviceability Agent to get the reliable addresses.
+        //# Objects are 8 bytes aligned.
+        //# Field sizes by type: 4, 1, 1, 2, 2, 4, 4, 8, 8 [bytes]
+        //# Array element sizes: 4, 1, 1, 2, 2, 4, 4, 8, 8 [bytes]
+        //
+        //com.liurui.samples.JOLSample_03_Packing$A object internals:
+        // OFFSET  SIZE      TYPE DESCRIPTION                               VALUE
+        //      0    12           (object header)                           N/A
+        //     12     4     float A.f1                                      N/A
+        //     16     8    double A.d1                                      N/A
+        //     24     8    double A.d2                                      N/A
+        //     32     8      long A.l1                                      N/A
+        //     40     8      long A.l2                                      N/A
+        //     48     4     float A.f2                                      N/A
+        //     52     4       int A.i1                                      N/A
+        //     56     4       int A.i2                                      N/A
+        //     60     2      char A.c1                                      N/A
+        //     62     2      char A.c2                                      N/A
+        //     64     2     short A.s1                                      N/A
+        //     66     2     short A.s2                                      N/A
+        //     68     1   boolean A.bo1                                     N/A
+        //     69     1   boolean A.bo2                                     N/A
+        //     70     1      byte A.b1                                      N/A
+        //     71     1      byte A.b2                                      N/A
+        //Instance size: 72 bytes
+        //Space losses: 0 bytes internal + 0 bytes external = 0 bytes total
+        //
+        //
+        //Process finished with exit code 0
     }
 
     public static class A {

@@ -40,7 +40,7 @@ import static java.lang.System.out;
  */
 public class JOLSample_04_Inheritance {
 
-    /*
+    /**
      * This is the example how VM lays out the fields in the hierarchy.
      *
      * The important invariant for JVM to maintain is laying out the
@@ -48,7 +48,7 @@ public class JOLSample_04_Inheritance {
      * the field is being accessed through. That is, for classes B and C
      * below the field A.a should reside on the same offset. This prompts
      * VM to lay out the superclass fields first.
-     */
+     **/
 
     public static void main(String[] args) throws Exception {
         out.println(VM.current().details());

@@ -42,7 +42,7 @@ import static java.lang.System.out;
  */
 public class JOLSample_14_FatLocking {
 
-    /*
+    /**
      * This is the example of fat locking.
      *
      * If VM detects contention on thread, it needs to delegate the

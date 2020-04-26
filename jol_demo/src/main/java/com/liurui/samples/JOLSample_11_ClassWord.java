@@ -40,7 +40,7 @@ import static java.lang.System.out;
  */
 public class JOLSample_11_ClassWord {
 
-    /*
+    /**
      * This is the example to have insight into object headers.
      *
      * In HotSpot, object header consists of two parts: mark word,

@@ -43,7 +43,7 @@ import static java.lang.System.out;
  */
 public class JOLSample_17_Allocation {
 
-    /*
+    /**
      * The example of allocation addresses.
      *
      * This example shows the addresses of newly allocated objects

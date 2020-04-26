@@ -40,7 +40,7 @@ import static java.lang.System.out;
  */
 public class JOLSample_05_InheritanceBarrier {
 
-    /*
+    /**
      * This example shows the HotSpot field layout quirk.
      * (Works best with 64-bit VMs)
      *

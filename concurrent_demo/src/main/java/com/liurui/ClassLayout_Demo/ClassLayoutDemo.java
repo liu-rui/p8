@@ -132,7 +132,7 @@ public class ClassLayoutDemo {
 
 
         System.out.println("打印字符串hello内存布局：");
-        System.out.println(ClassLayout.parseInstance("hello").toPrintable());
+        System.out.println(ClassLayout.parseInstance("hello world").toPrintable());
         System.out.println(ClassLayout.parseInstance("word").toPrintable());
         System.out.println("---------------\n\n");
 
@@ -141,7 +141,7 @@ public class ClassLayoutDemo {
         //      0     4          (object header)                           01 00 00 00 (00000001 00000000 00000000 00000000) (1)
         //      4     4          (object header)                           00 00 00 00 (00000000 00000000 00000000 00000000) (0)
         //      8     4          (object header)                           c2 02 00 f8 (11000010 00000010 00000000 11111000) (-134217022)
-        //     12     4   char[] String.value                              [h, e, l, l, o]
+        //     12     4   char[] String.value                              [h, e, l, l, o,  , w, o, r, l, d]
         //     16     4      int String.hash                               0
         //     20     4          (loss due to the next object alignment)
         //Instance size: 24 bytes
