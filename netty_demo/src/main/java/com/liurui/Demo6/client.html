@@ -1,0 +1,47 @@
+<html>
+<header>
+    <meta charset="UTF-8">
+</header>
+<body>
+<textarea id="txtInput"></textarea>
+<button id="btnSend">发送</button>
+<div id="txtMessage"></div>
+
+<script>
+    var socket;
+
+    function appendMessage(msg) {
+        var txtMessage = document.getElementById("txtMessage");
+        txtMessage.innerText = txtMessage.innerText + "\n" + msg;
+    }
+
+    function load() {
+        if (window.WebSocket) {
+            socket = new WebSocket("ws://localhost:8912/a");
+
+            socket.onopen = function (event) {
+                console.log("opened")
+            }
+
+            socket.onmessage = function (event) {
+                appendMessage(event.data);
+            }
+
+        } else {
+            console.log("不支持websocket");
+            return;
+        }
+        var btnsend = document.getElementById("btnSend");
+
+        btnsend.onclick = function () {
+            var txtInput = document.getElementById("txtInput");
+
+            socket.send(txtInput.value);
+            appendMessage("我：" + txtInput.value);
+        }
+    }
+
+    window.onload = load();
+</script>
+</body>
+</html>
