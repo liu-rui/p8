@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package customer;
+
+option java_package = "com.liurui.Demo7";
+option java_outer_classname = "CustomerProto";
+
+
+message Customer {
+    string name = 1;
+    int32 age = 2;
+}
