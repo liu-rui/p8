@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * @author liu-rui
  * @date 2020/4/27 下午2:42
- * @description 验证happen-before中的传递性
+ * @description TODO:验证happen-before中的传递性
  * @since
  */
 @Slf4j

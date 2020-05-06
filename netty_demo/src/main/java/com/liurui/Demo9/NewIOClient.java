@@ -1,8 +1,7 @@
-package Demo9;
+package com.liurui.Demo9;
 
 import java.io.FileInputStream;
 import java.net.InetSocketAddress;
-import java.net.Socket;
 import java.nio.channels.FileChannel;
 import java.nio.channels.SocketChannel;
 
