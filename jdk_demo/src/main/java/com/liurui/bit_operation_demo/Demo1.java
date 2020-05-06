@@ -8,6 +8,10 @@ package com.liurui.bit_operation_demo;
  */
 public class Demo1 {
     public static void main(String[] args) {
-
+        //与运算，每一位与
+        System.out.println(3 & 1); //1
+        System.out.println(4 & 1); //0
+        System.out.println(2 >> 1); //1
+        System.out.println(2 << 1); //4
     }
 }

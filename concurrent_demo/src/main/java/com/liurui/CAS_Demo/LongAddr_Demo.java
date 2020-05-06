@@ -5,7 +5,7 @@ import java.util.concurrent.atomic.LongAdder;
 /**
  * @author liu-rui
  * @date 2020/4/27 下午2:22
- * @description TODO: LongAddr源码分析
+ * @description LongAddr源码分析
  * 参考： https://www.cnblogs.com/tong-yuan/p/LongAdder.html
  * @since
  */
