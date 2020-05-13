@@ -6,6 +6,7 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -13,6 +14,13 @@ import java.util.concurrent.locks.ReentrantLock;
  * @author liu-rui
  * @date 2020/5/6 下午3:49
  * @description 自己实现一个线程池
+ *
+ * 阻塞队列满时触发拒绝策略：
+ * 1. 死等
+ * 2. 带超时等待
+ * 3. 调用者放弃任务执行
+ * 4. 调用者抛出异常
+ * 5. 调用者执行任务
  * @since
  */
 @Slf4j
