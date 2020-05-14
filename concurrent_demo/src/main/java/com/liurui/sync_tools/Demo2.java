@@ -9,7 +9,7 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * 调试源码Condition的await和signal方法执行过程
+ * 调试源码AQS的Condition的await和signal方法执行过程
  */
 @Slf4j
 public class Demo2 {
