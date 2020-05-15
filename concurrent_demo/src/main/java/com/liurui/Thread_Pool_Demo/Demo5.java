@@ -80,7 +80,7 @@ public class Demo5 {
             lock.lock();
             try {
                 while (this.data != null) {
-                    if (!producerCondition.a(timeout, timeUnit)) {
+                    if (!producerCondition.await(timeout, timeUnit)) {
                         log.info(thread.toString());
                         return false;
                     }
