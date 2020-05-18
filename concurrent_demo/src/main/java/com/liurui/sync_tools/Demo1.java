@@ -61,7 +61,7 @@ public class Demo1 {
 
             @Override
             protected boolean isHeldExclusively() {
-                return getState() == 1;
+                return getExclusiveOwnerThread() == Thread.currentThread();
             }
 
             public Condition newCondition() {

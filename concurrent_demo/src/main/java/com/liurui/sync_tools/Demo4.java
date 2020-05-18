@@ -1,36 +1,41 @@
 package com.liurui.sync_tools;
 
+import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * @author liu-rui
- * @date 2020/5/18 下午2:56
- * @description 代码跟踪ReentrantLock的Lock和Release
+ * @date 2020/5/18 下午4:03
+ * @description 调试Reentrant.Condition
  * @since
  */
-public class Demo2 {
+public class Demo4 {
     public static void main(String[] args) {
         ReentrantLock lock = new ReentrantLock();
+        final Condition condition = lock.newCondition();
 
         new Thread(() -> {
             lock.lock();
+
             try {
-//                TimeUnit.HOURS.sleep(1);
-            } catch (Exception e) {
-                e.printStackTrace();
+                try {
+                    condition.await(); //此处加断点
+                } catch (InterruptedException e) {
+
+                }
             } finally {
-                lock.unlock(); //此处加断点，唤醒t2
+                lock.unlock();
             }
         }, "t1").start();
 
         new Thread(() -> {
-            lock.lock();   //此处加断点，调试锁已经被占的情况
+            lock.lock();
 
             try {
-
+                condition.signal(); //唤醒
             } finally {
                 lock.unlock();
             }
-        }, "t2").start();
+        }, "t1").start();
     }
 }
