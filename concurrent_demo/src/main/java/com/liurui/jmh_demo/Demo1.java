@@ -1,5 +1,6 @@
-package com.liurui;
+package com.liurui.jmh_demo;
 
+import com.liurui.App;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.Mode;
 import org.openjdk.jmh.runner.Runner;
@@ -9,12 +10,11 @@ import org.openjdk.jmh.runner.options.OptionsBuilder;
 
 /**
  * @author liu-rui
- * @date 2020/2/27 下午2:10
+ * @date 2020/5/20 下午6:18
  * @description
  * @since
  */
-public class App {
-    static volatile boolean stopped = false;
+public class Demo1 {
 
     public static void main(String[] args) throws RunnerException {
         Options opt = new OptionsBuilder()
