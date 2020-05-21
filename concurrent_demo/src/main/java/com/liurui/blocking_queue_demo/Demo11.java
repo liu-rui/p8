@@ -8,6 +8,7 @@ import java.util.concurrent.ArrayBlockingQueue;
  * @author liu-rui
  * @date 2020/5/21 下午1:58
  * @description
+ * 实践ArrayBlockingQueue
  * @since
  */
 @Slf4j

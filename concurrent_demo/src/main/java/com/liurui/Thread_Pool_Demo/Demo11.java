@@ -6,6 +6,9 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * TODO：线程池源码分析
+ */
 @Slf4j
 public class Demo11 {
     public static void main(String[] args) {
