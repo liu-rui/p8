@@ -16,7 +16,7 @@ public class Demo1 {
     public static void main(String[] args) {
         LinkedBlockingQueue<String> queue = new LinkedBlockingQueue<>(2);
 
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 1; i++) {
             int finalI = i;
             new Thread(() -> {
                 for (int j = 0; j < 10; j++) {
@@ -46,6 +46,5 @@ public class Demo1 {
                 }
             }
         }, "consumer").start();
-
     }
 }
