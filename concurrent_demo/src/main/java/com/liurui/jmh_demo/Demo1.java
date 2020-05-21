@@ -12,6 +12,8 @@ import org.openjdk.jmh.runner.options.OptionsBuilder;
  * @author liu-rui
  * @date 2020/5/20 下午6:18
  * @description
+ * 对比性能多种字符串拼接方式
+ * StringBuilder(1亿) >  StringBuffer(7000w) > StringAdd(6000w) > Concat(3000w) > Format(100w)
  * @since
  */
 public class Demo1 {
