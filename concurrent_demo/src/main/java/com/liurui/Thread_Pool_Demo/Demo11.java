@@ -11,15 +11,27 @@ import java.util.concurrent.TimeUnit;
  */
 @Slf4j
 public class Demo11 {
-    public static void main(String[] args) {
-        ThreadPoolExecutor executor = new ThreadPoolExecutor(0,
-                2,
+    public static void main(String[] args) throws InterruptedException {
+        ThreadPoolExecutor executor = new ThreadPoolExecutor(1,
+                1,
                 2,
                 TimeUnit.SECONDS,
                 new LinkedBlockingQueue<>(1));
 
         executor.submit(() -> {
-            log.info("a");
+            try {
+                TimeUnit.HOURS.sleep(3);
+            } catch (InterruptedException e) {
+
+            }
         });
+
+//        executor.submit(() -> {
+//            try {
+//                TimeUnit.HOURS.sleep(3);
+//            } catch (InterruptedException e) {
+//
+//            }
+//        });
     }
 }
