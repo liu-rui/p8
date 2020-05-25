@@ -12,7 +12,7 @@ import java.util.concurrent.ArrayBlockingQueue;
  * @since
  */
 @Slf4j
-public class Demo11 {
+public class Demo3 {
     public static void main(String[] args) throws InterruptedException {
         ArrayBlockingQueue<String> queue = new ArrayBlockingQueue<>(2);
 

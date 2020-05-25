@@ -26,6 +26,7 @@ public class Demo12 {
                 TimeUnit.SECONDS,
                 new LinkedBlockingQueue<>(1));
 
+
         executor.execute(() -> {
             log.info("task1 begin...");
             throw new RuntimeException("task1 error");
