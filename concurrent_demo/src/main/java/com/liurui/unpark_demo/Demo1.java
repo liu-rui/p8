@@ -37,6 +37,7 @@ public class Demo1 {
 
 
         TimeUnit.SECONDS.sleep(2);
+        log.info("{}",t1.getState());
         log.info(ClassLayout.parseInstance(t1).toPrintable());
         log.info(ClassLayout.parseInstance(t2).toPrintable());
         LockSupport.unpark(t2);
