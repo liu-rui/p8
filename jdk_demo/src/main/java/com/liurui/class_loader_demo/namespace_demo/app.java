@@ -12,8 +12,8 @@ import com.liurui.class_loader_demo.MyClassLoader;
  */
 public class app {
     public static void main(String[] args) throws Exception {
-        MyClassLoader classLoader1 = new MyClassLoader("/home/liurui/文档");
-        MyClassLoader classLoader2 = new MyClassLoader("/home/liurui/文档");
+        MyClassLoader classLoader1 = new MyClassLoader("/Users/123hhh/mine");
+        MyClassLoader classLoader2 = new MyClassLoader("/Users/123hhh/mine");
 
         final Class<?> car1Class = classLoader1.loadClass("com.liurui.class_loader_demo.Car");
         final Class<?> car2Class = classLoader2.loadClass("com.liurui.class_loader_demo.Car");

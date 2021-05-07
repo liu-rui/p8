@@ -62,6 +62,8 @@ public class MyIdleServer {
 
 
     static class MyIdleServerHandler extends SimpleChannelInboundHandler<String> {
+
+
         @Override
         protected void channelRead0(ChannelHandlerContext ctx, String msg) throws Exception {
 

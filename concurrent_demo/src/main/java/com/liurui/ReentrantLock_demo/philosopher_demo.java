@@ -66,6 +66,7 @@ public class philosopher_demo {
         chopsticks c3 = new chopsticks("1");
         chopsticks c4 = new chopsticks("1");
         chopsticks c5 = new chopsticks("1");
+
         new Philosopher("张1", c1, c2).start();
         new Philosopher("张2", c2, c3).start();
         new Philosopher("张3", c3, c4).start();

@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class app {
     public static void main(String[] args) throws Exception {
-        MyClassLoader classLoader = new MyClassLoader("/home/liurui/文档");
+        MyClassLoader classLoader = new MyClassLoader("/Users/123hhh/mine");
         Class<?> carClass = classLoader.loadClass("com.liurui.class_loader_demo.Car");
         Object instance = carClass.newInstance();
 

@@ -51,8 +51,7 @@ public class MyClassLoader extends ClassLoader {
     }
 
     public static void main(String[] args) throws ClassNotFoundException, IllegalAccessException, InstantiationException {
-        MyClassLoader classLoader = new MyClassLoader("/home/liurui/文档");
-
+        MyClassLoader classLoader = new MyClassLoader("/Users/123hhh/mine");
         final Class<?> carClass = classLoader.loadClass("com.liurui.class_loader_demo.Car");
         final Object instance = carClass.newInstance();
         System.out.println(instance);
